@@ -1,0 +1,27 @@
+<h1>Add member</h1>
+
+
+<form action="addrecord/" method="post">
+{% csrf_token %}
+Nombre Medicamento:<br>
+<input name="nombreMedicamento">
+<br><br>
+Cantidad Stock:<br>
+<input name="cantidadStock">
+<br><br>
+Cantidad Dispensada:<br>
+<input name="cantDispensada">
+<br><br>
+Fecha Ingreso:<br>
+<input name="fechaIngreso" type="date">
+<br><br>
+Fecha Vencimiento: <br>
+<input name="fechaVencimiento" type="date">
+<br><br>
+
+
+
+
+
+<input type="submit" value="Submit">
+</form>

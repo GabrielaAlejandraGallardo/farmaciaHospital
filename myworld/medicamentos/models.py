@@ -1,0 +1,12 @@
+from django.db import models
+
+
+
+class Medicamentos(models.Model):
+  nombreMedicamento = models.CharField(max_length=255)
+  cantidadStock = models.IntegerField(max_length=255)
+  cantDispensada= models.IntegerField(max_length=255)
+  fechaIngreso = models.DateField()
+  fechaVencimiento = models.DateField()
+  #cantIngresada=models.IntegerField(max_length=255)
+# Create your models here.

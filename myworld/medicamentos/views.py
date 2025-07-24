@@ -1,0 +1,195 @@
+"""from django.shortcuts import render
+from django.http import HttpResponse
+
+
+def index(request):
+    return HttpResponse("Hello world!")"""
+    
+"""from django.http import HttpResponse
+from django.template import loader
+from .models import Members
+
+
+def index(request):
+  mymembers = Members.objects.all().values()
+  output = ""
+  for x in mymembers:
+    output += x["firstname"]
+  return HttpResponse(output)
+"""
+
+    
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect, render
+from django.template import loader
+from django.urls import reverse
+from .models import Medicamentos
+
+def violenciaDeGenero(request):
+  return HttpResponse(render(request, 'violenciadegenero.html'))
+
+def index(request):
+  mymembers = Medicamentos.objects.all().values()
+  template = loader.get_template('index.html')
+  context = {
+    'mymembers': mymembers,
+  }
+  return HttpResponse(template.render(context, request))
+def add(request):
+  template = loader.get_template('add.html')
+  return HttpResponse(template.render({}, request))
+# ...existing code...
+
+def addrecord(request):
+    if request.method == "POST":
+        nombre = request.POST['nombreMedicamento']
+        cantidad = request.POST['cantidadStock']
+        dispensada = request.POST['cantDispensada']
+        ingreso = request.POST['fechaIngreso']
+        vencimiento = request.POST['fechaVencimiento']
+        member =Medicamentos(
+            nombreMedicamento=nombre,
+            cantidadStock=cantidad,
+            cantDispensada=dispensada,
+            fechaIngreso=ingreso,
+            fechaVencimiento=vencimiento
+        )
+        member.save()
+        return redirect('/Medicamentos/')
+
+
+# ...existing code...
+def delete(request, id):
+  member = Medicamentos.objects.get(id=id)
+  member.delete()
+  return HttpResponseRedirect(reverse('index'))
+
+
+def update(request, id):
+  mymember = Medicamentos.objects.get(id=id)
+  template = loader.get_template('update.html')
+  context = {  'mymember': m
+             ymember,  }
+  return HttpResponse(template.render(context, request))
+
+# ...existing code...
+def updaterecord(request, id):
+    if request.method == "POST":
+        nombre = request.POST['nombreMedicamento']
+        cantidad = request.POST['cantidadStock']
+        dispensada = request.POST['cantDispensada']
+        ingreso = request.POST['fechaIngreso']
+        vencimiento = request.POST['fechaVencimiento']
+        member = Medicamentos.objects.get(id=id)
+        member.nombreMedicamento = nombre
+        member.cantidadStock = int(cantidad) - int(dispensada)#+int(ingresada)
+        member.cantDispensada = dispensada
+        member.fechaIngreso = ingreso
+        member.fechaVencimiento = vencimiento
+        # member.cantIngresada = ingresada
+        member.save()
+        return redirect('/medicamentos/')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+<h1>Members</h1>
+
+
+<table border="1">
+<tr>
+    <th>ID</th>
+    <th>Nombre Medicamento</th>
+    <th>Cantidad Stock</th>
+    <th>Cantidad Dispensada</th>
+    <th>Fecha Ingreso</th>
+    <th>Fecha Vencimiento</th>
+    <th>Acciones</th>
+</tr>
+{% for x in mymembers %}
+<tr>
+    <td>{{ x.id }}</td>
+    <td>{{ x.nombreMedicamento }}</td>
+    <td>{{ x.cantidadStock }}</td>
+    <td>{{ x.cantDispensada }}</td>
+    <td>{{ x.fechaIngreso }}</td>
+    <td>{{ x.fechaVencimiento }}</td>
+    <td>
+        <a href="delete/{{ x.id }}">delete</a>
+        <a href="update/{{ x.id }}">update</a>
+    </td>
+</tr>
+{% endfor %}
+
+
+<p>
+<a href="add/">Add member</a>
+</p>

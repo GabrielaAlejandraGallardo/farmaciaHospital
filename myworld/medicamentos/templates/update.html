@@ -1,0 +1,28 @@
+<h1>Actualizar Medicamento</h1>
+<form action="updaterecord/{{ mymember.id }}" method="post">
+    {% csrf_token %}
+    Nombre del Medicamento:<br>
+    <input name="nombreMedicamento" value="{{ mymember.nombreMedicamento }}">
+    <br><br>
+    Cantidad en Stock:<br>
+    <input name="cantidadStock" value="{{ mymember.cantidadStock }}">
+    <br><br>
+    Cantidad Dispensada:<br>
+    <input name="cantDispensada" value="{{ mymember.cantDispensada }}">
+    <br><br>
+    Fecha de Ingreso:<br>
+    <input name="fechaIngreso"  type="date" value="{{ mymember.fechaIngreso }}">
+    <br><br>
+    Fecha de Vencimiento:<br>
+    <input name="fechaVencimiento"  type="date" value="{{ mymember.fechaVencimiento }}">
+    <br><br>
+    <input type="submit" value="Actualizar">
+</form>
+<form action="updaterecord/{{ mymember.id }}" method="post">
+{% csrf_token %}
+
+
+
+
+
+
