@@ -16,9 +16,7 @@ def index(request):
   for x in mymembers:
     output += x["firstname"]
   return HttpResponse(output)
-"""
-
-    
+"""    
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.template import loader
@@ -68,8 +66,7 @@ def delete(request, id):
 def update(request, id):
   mymember = Medicamentos.objects.get(id=id)
   template = loader.get_template('update.html')
-  context = {  'mymember': m
-             ymember,  }
+  context = {  'mymember': mymember,  }
   return HttpResponse(template.render(context, request))
 
 # ...existing code...
