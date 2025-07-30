@@ -43,14 +43,13 @@ def addrecord(request):
         nombre = request.POST['nombreMedicamento']
         cantidad = request.POST['cantidadStock']
         dispensada = request.POST['cantDispensada']
-        ingreso = request.POST['fechaIngreso']
-        vencimiento = request.POST['fechaVencimiento']
-        member =Medicamentos(
+        ingresada = request.POST['cantIngresada']
+      
+        member=Medicamentos(
             nombreMedicamento=nombre,
             cantidadStock=cantidad,
             cantDispensada=dispensada,
-            fechaIngreso=ingreso,
-            fechaVencimiento=vencimiento
+            cantIngresada=ingresada,
         )
         member.save()
         return redirect('/Medicamentos/')
@@ -75,16 +74,18 @@ def updaterecord(request, id):
         nombre = request.POST['nombreMedicamento']
         cantidad = request.POST['cantidadStock']
         dispensada = request.POST['cantDispensada']
-        ingreso = request.POST['fechaIngreso']
-        vencimiento = request.POST['fechaVencimiento']
+        ingresada = request.POST['cantIngresada']
+       
         member = Medicamentos.objects.get(id=id)
         member.nombreMedicamento = nombre
-        member.cantidadStock = int(cantidad) - int(dispensada)#+int(ingresada)
         member.cantDispensada = dispensada
-        member.fechaIngreso = ingreso
-        member.fechaVencimiento = vencimiento
-        # member.cantIngresada = ingresada
-        member.save()
+        member.cantIngresada = ingresada
+        member.cantidadStock = int(cantidad) - int(dispensada)
+        member.save() 
+        member.save() 
+        member.save() 
+        member.save() 
+       
         return redirect('/medicamentos/')
 
 

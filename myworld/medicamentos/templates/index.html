@@ -7,8 +7,8 @@
     <th>Nombre Medicamento</th>
     <th>Cantidad Stock</th>
     <th>Cantidad Dispensada</th>
-    <th>Fecha Ingreso</th>
-    <th>Fecha Vencimiento</th>
+    <th>Cantidad Ingresada</th>
+    
     <th>Acciones</th>
 </tr>
 {% for x in mymembers %}
@@ -17,8 +17,8 @@
     <td>{{ x.nombreMedicamento }}</td>
     <td>{{ x.cantidadStock }}</td>
     <td>{{ x.cantDispensada }}</td>
-    <td>{{ x.fechaIngreso }}</td>
-    <td>{{ x.fechaVencimiento }}</td>
+    <td>{{ x.cantIngresada }}</td>
+  
     <td>
         <a href="delete/{{ x.id }}">delete</a>
         <a href="update/{{ x.id }}">update</a>
