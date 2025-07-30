@@ -80,7 +80,7 @@ def updaterecord(request, id):
         member.nombreMedicamento = nombre
         member.cantDispensada = dispensada
         member.cantIngresada = ingresada
-        member.cantidadStock = int(cantidad) - int(dispensada)
+        member.cantidadStock = int(cantidad) - int(dispensada)+int(ingresada)
         member.save() 
         member.save() 
         member.save() 
