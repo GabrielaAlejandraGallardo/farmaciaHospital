@@ -3,6 +3,8 @@ from django.db import models
 
 
 class Medicamentos(models.Model):
+ 
+  id = models.AutoField(primary_key=True)  
   nombreMedicamento = models.CharField(max_length=255)
   cantidadStock = models.IntegerField(max_length=255)
   cantDispensada= models.IntegerField(max_length=255)
