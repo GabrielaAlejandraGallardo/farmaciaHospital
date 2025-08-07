@@ -4,7 +4,9 @@ from django.conf import settings
 from django.contrib.staticfiles.urls import static 
 
 urlpatterns = [
-    path('', views.index, name='index'),
+ 
+    path('', views.inicio, name='inicio'),
+    path('index', views.index, name='index'),
     path('add/', views.add, name='add'),
     path('add/addrecord/', views.addrecord, name='addrecord'),
     path('delete/<int:id>', views.delete, name='delete'),

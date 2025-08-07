@@ -26,6 +26,9 @@ from .models import Medicamentos
 def violenciaDeGenero(request):
   return HttpResponse(render(request, 'violenciadegenero.html'))
 
+def inicio(request):
+    return render(request,'inicio.html')
+  
 def index(request):
   mymembers = Medicamentos.objects.all().values()
   template = loader.get_template('index.html')
@@ -75,17 +78,12 @@ def updaterecord(request, id):
         cantidad = request.POST['cantidadStock']
         dispensada = request.POST['cantDispensada']
         ingresada = request.POST['cantIngresada']
-       
         member = Medicamentos.objects.get(id=id)
         member.nombreMedicamento = nombre
         member.cantDispensada = dispensada
         member.cantIngresada = ingresada
         member.cantidadStock = int(cantidad) - int(dispensada)+int(ingresada)
         member.save() 
-        member.save() 
-        member.save() 
-        member.save() 
-       
         return redirect('/medicamentos/')
 
 

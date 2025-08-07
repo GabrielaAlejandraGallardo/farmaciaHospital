@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block titulo %}Página de Inicio {% endblock titulo %}
+{% block contenido %}
+    <div class="p-5 mb-4 bg-secondary rounded-3 text-white">
+        <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Bienvenido al Sistema </h1>
+        <p class="col-md-8 fs-4">Este es el sistema de administración Stock medicamentos</p>
+     
+      
+         <!--     <a><img src="{% static 'imagen.png' %}" alt="logo" class="rounded mx-auto d-block h-50 bd-placeholder-img" width="200" height="250" > </a>-->
+        <!-- Imagen con transición de escala al pasar el mouse -->
+       <img src="{% static 'imagen.jpg' %}" 
+        alt="logo" width="400" height="200" 
+        loading="lazy"
+        class="img-transicion rounded mx-auto d-block h-30" 
+        style="transition: transform 0.5s;">
+
+<style>
+/* filepath: tu_archivo.css o dentro de una etiqueta <style> */
+.img-transicion:hover {
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+}
+
+    </div></div>
+{% endblock contenido %}
