@@ -36,9 +36,12 @@ def index(request):
     'mymembers': mymembers,
   }
   return HttpResponse(template.render(context, request))
+
 def add(request):
   template = loader.get_template('add.html')
   return HttpResponse(template.render({}, request))
+
+
 # ...existing code...
 
 def addrecord(request):
@@ -55,7 +58,7 @@ def addrecord(request):
             cantIngresada=ingresada,
         )
         member.save()
-        return redirect('/Medicamentos/')
+        return redirect('/medicamentos/index')
 
 
 # ...existing code...
@@ -84,7 +87,7 @@ def updaterecord(request, id):
         member.cantIngresada = ingresada
         member.cantidadStock = int(cantidad) - int(dispensada)+int(ingresada)
         member.save() 
-        return redirect('/medicamentos/')
+        return redirect('/medicamentos/index')
 
 
 
