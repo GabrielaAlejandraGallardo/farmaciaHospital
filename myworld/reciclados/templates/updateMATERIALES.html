@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Actualizar Medicamento{% endblock titulo %}
+{% block contenido %}
+
+<h1>Actualizar Medicamento</h1>
+<form action="updaterecordM/{{ mymember.idMaterial }}" method="post">
+    {% csrf_token %}
+    Descripción material:<br>
+    <input name="descripcion" value="{{ mymember.descripcion }}">
+    <br><br>
+    Proceso:<br>
+    <input name="proceso" value="{{ mymember.proceso }}">
+    <br><br>
+   
+   
+    <input type="submit" value="Actualizar">
+</form>
+<form action="updaterecordM/{{ mymember.idMaterial }}" method="post">
+{% csrf_token %}
+
+</form>
+
+{% endblock contenido %}

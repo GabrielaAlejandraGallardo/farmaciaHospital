@@ -1,0 +1,39 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}Members {% endblock titulo %}
+{% block contenido %}
+<h1>Members</h1>
+
+
+<table border="1">
+<tr>
+    <th>ID</th>
+    <th>Descripción material</th>
+    <th>Proceso</th>
+   
+    <th>Acciones</th>
+</tr>
+{% for x in mymembers %}
+<tr>
+    <td>{{ x.idMaterial }}</td>
+    <td>{{ x.descripcion }}</td>
+    <td>{{ x.proceso }}</td>
+  
+    <td>
+        <a href="delete/{{ x.idMaterial }}">delete</a>
+        <a href="updateM/{{ x.idMaterial }}">update</a>
+    </td>
+</tr>
+{% endfor %}
+
+
+<p>
+
+
+<a href="{% url 'reciclados:addM' %}" class="btn btn-primary">Agregar nuevo material</a>
+
+
+</p>
+{% endblock contenido %}
